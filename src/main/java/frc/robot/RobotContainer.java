@@ -14,12 +14,17 @@ import frc.robot.subsystems.Lift.Target;
 public class RobotContainer {
   private Lift m_lift;
   private XboxController m_controller;
-  
-  Trigger aTrigger = new Trigger(m_controller::getAButton);
-  Trigger bTrigger = new Trigger(m_controller::getBButton);
+
+  private Trigger aTrigger;
+  private Trigger bTrigger;
 
   public RobotContainer() {
-    m_lift = new Lift(); 
+    m_controller = new XboxController(0);
+
+    aTrigger = new Trigger(m_controller::getAButton);
+    bTrigger = new Trigger(m_controller::getBButton);
+    
+    m_lift = new Lift();
 
     configureButtonBindings();
   }

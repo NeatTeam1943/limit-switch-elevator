@@ -11,7 +11,7 @@ public class Elevate extends CommandBase {
   public Elevate(Lift lift, Target target) {
     m_lift = lift;
 
-    speed = target == Target.TOP ? 0.2 : -0.2;
+    speed = target.getSpeed();
 
     addRequirements(m_lift);
   }
